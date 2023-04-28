@@ -28,9 +28,10 @@ public class UrlServiceImpl implements UrlService {
 
 		url.setshortUrlName(generatedString);
 		URLData doesExist = repo.findByFullUrlName(url.getfullUrlName());
-
-		if (doesExist.getfullUrlName() != null || doesExist.getfullUrlName() != "") {
+System.out.println(doesExist);
+		if (doesExist!= null && (doesExist.getfullUrlName() != null || doesExist.getfullUrlName() != "")) {
 			data = doesExist;
+			System.out.println("if==="+data);
 		} else {
 
 			data = repo.save(url);
